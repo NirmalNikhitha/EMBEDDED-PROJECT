@@ -2,6 +2,7 @@
 COLOUR BASED PRODUCT SORTING
 
 # Arduino Code
+# Header file
 #include <Servo.h>
 #define S0 2
 #define S1 3
@@ -18,7 +19,7 @@ pinMode(S1, OUTPUT);
 pinMode(S2, OUTPUT);
 pinMode(S3, OUTPUT);
 pinMode(sensorOut, INPUT);
-// Setting frequency-scaling to 20%
+ # Setting frequency-scaling to 20%
 digitalWrite(S0, HIGH);
 digitalWrite(S1, LOW);
 7
@@ -65,43 +66,44 @@ delay(2);
 }
 color=0;
 }
-// Custom Function - readColor()
+# Custom Function - readColor()
 int readColor() {
-// Setting red filtered photodiodes to be read
+ # setting red filtered photodiodes to be read
 digitalWrite(S2, LOW);
 digitalWrite(S3, LOW);
-// Reading the output frequency
+# Reading the output frequency
 frequency = pulseIn(sensorOut, LOW);
 int R = frequency;
-// Printing the value on the serial monitor
+# Printing the value on the serial monitor
 Serial.print("R= ");//printing name
 Serial.print(frequency);//printing RED color frequency
 Serial.print(" ");
 delay(50);
-// Setting Green filtered photodiodes to be read
+# Setting Green filtered photodiodes to be read
 digitalWrite(S2, HIGH);
 9
 digitalWrite(S3, HIGH);
-// Reading the output frequency
+# Reading the output frequency
 frequency = pulseIn(sensorOut, LOW);
 int G = frequency;
-// Printing the value on the serial monitor
+# Printing the value on the serial monitor
 Serial.print("G= ");//printing name
 Serial.print(frequency);//printing RED color frequency
 Serial.print(" ");
 delay(50);
-// Setting Blue filtered photodiodes to be read
+# Setting Blue filtered photodiodes to be read
 digitalWrite(S2, LOW);
 digitalWrite(S3, HIGH);
-// Reading the output frequency
+# Reading the output frequency
 frequency = pulseIn(sensorOut, LOW);
 int B = frequency;
-// Printing the value on the serial monitor
+# Printing the value on the serial monitor
 Serial.print("B= ");//printing name
 Serial.print(frequency);//printing RED color frequency
 Serial.println(" ");
 delay(50);
-if(R>73 & R<100 & G>119 & G<140 & B>105 &B<122){ ///This value should be change according to your reding please check serial monitor to know your reading.
+if(R>73 & R<100 & G>119 & G<140 & B>105 &B<122){ 
+# This value should be change according to your reding please check serial monitor to know your reading.
 color = 1; // Red
 }
 if(R>92 & R<110 & G>105 & G<135 & B>105 &B<122){
